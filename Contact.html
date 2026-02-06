@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Extracted Page">
+    <title>Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/middle_sections.css">
+    <link rel="stylesheet" href="assets/css/anim-effects.css">
+    <link rel="stylesheet" href="assets/css/components/header-2.css">
+    <link rel="stylesheet" href="assets/css/components/footer-5.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="assets/css/custom-Imports.css">
+    <link rel="stylesheet" href="assets/css/resonsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/satoshi');
+
+        :root {
+            --site-font: "Satoshi", sans-serif;
+        }
+
+        body,
+        #wrapper,
+        #wrapper * {
+            font-family: var(--site-font) !important;
+        }
+    </style>
+</head>
+
+<body class="theme-1">
+    <div id="wrapper">
+        <div id="header"></div>
+        <div id="mainPageContent">
+
+            <section class="section-wrapper contact-11-section anim-slide-up">
+                <!-- Left Form Area -->
+                <div class="contact-11-left">
+                    <h2>Get In Touch Today</h2>
+                    <p>Please fill in the fields below, and we will make sure to direct your concerns to a manager at
+                        the club you
+                        choose</p>
+
+                    <form class="contact-11-form" method="POST" id="contact-form">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" placeholder="Name" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Email <span style="color:red">*</span></label>
+                                    <input type="email" placeholder="Email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Message</label>
+                                    <textarea placeholder="Message" name="message" rows="5" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="contact-11-btn" onclick="sendEmailDataToGitHub()">Send
+                            Message</button>
+                        <!-- Form Message -->
+                        <div class="col-12">
+                            <div class="form-group">
+                                <p class="form-message"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Image and Info -->
+                <div class="contact-11-right">
+                    <div class="contact-11-img">
+                        <img src="assets/images/contact-11.jpg" alt="Trainer">
+                    </div>
+                    <div class="contact-11-other">
+                        <h4>Other Ways To Reach Us</h4>
+                        <div class="contact-11-icon-box">
+                            <i class="ri-phone-line"></i>
+                            <p><strong>Call Us</strong><br>+91 864 7635</p>
+                        </div>
+                        <div class="contact-11-icon-box">
+                            <i class="ri-mail-line"></i>
+                            <p><strong>Mail Us</strong><br>ASK@YOURSITE.COM</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="footer"></div>
+    </div>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/init.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/jquery.main.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/Observer.min.js"></script>
+    <script src="assets/js/gsap.effects.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="assets/js/common_js/send_email.js"></script>
+    <script src="assets/js/common_js/html_image_editor.js"></script>
+    <script src="assets/js/common_js/windows_postmessage.js"></script>
+    <script>
+        var fileName = document.title || "index";
+
+        $(document).ready(function () {
+            loadHeaderFooter("header", "client-assets/eth561913/eth561913/header.html");
+            loadHeaderFooter("footer", "client-assets/eth561913/eth561913/footer.html");
+
+            loadHeaderFooter("header", "header.html");
+            loadHeaderFooter("footer", "footer.html");
+        });
+
+        function loadHeaderFooter(id, file) {
+            $("#" + id).load(file, function (response, status, xhr) {
+                if (status === "error") {
+                    console.error("Error loading " + file + ":", xhr.status, xhr.statusText);
+                    return;
+                }
+
+                $("#" + id).find("a").addClass("edit-site");
+
+                if (id === "header") {
+                    if (fileName.toLowerCase() === "index" || fileName.toLowerCase() === "home") {
+                        $("#" + id).find(".main-header-section").css("display", "inline-block");
+                    } else {
+                        $("#" + id).find(".main-header-section").css("display", "none");
+                        $("#" + id).find(".header-breadcrumb-section").css("display", "inline-block");
+                        $("#" + id).find(".header-breadcrumb-section .Page_name")
+                            .text(fileName.charAt(0).toUpperCase() + fileName.slice(1));
+                    }
+                }
+            });
+        }
+    </script>
+    <script src="assets/js/middle-section.js"></script>
+
+</body>
+
+</html>
