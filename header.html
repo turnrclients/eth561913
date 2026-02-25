@@ -233,6 +233,21 @@
 	});
 
 </script>
+<script>
+	console.log("Scroll script loaded");
+
+	$(window).on('scroll', function () {
+		console.log("Scrolling:", $(this).scrollTop());
+
+		if ($(this).scrollTop() > 50) {
+			$('header.header-2').addClass('sticky-active');
+			console.log("Class added");
+		} else {
+			$('header.header-2').removeClass('sticky-active');
+			console.log("Class removed");
+		}
+	});
+</script>
 <section class="header-breadcrumb-section"
 	style="background: url('assets/images/header-breadcrumb-section-bg.jpg') center center / cover no-repeat;">
 	<div class="container text-center">
